@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+    php-httpd:
+        image: php:7.4-apache
+        ports:
+            - 8080:80
+        volumes:
+            - ./:/var/www/html
+
+    mysql:
+        image: mysql:8.0.1
+        volumes:
+            - vol-mysql:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "salupa"
+            MYSQL_USER: "admin"
+            MYSQL_PASSWORD: "salupa"
+            # MYSQL_DATABASE: "nama_database"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - mysql:db
+        ports:
+            - 8081:80
+volumes:
+    vol-mysql:
