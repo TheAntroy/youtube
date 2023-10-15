@@ -1,0 +1,11 @@
+# Direktori virtual environment
+.venv/
+
+# Berkas cache
+__pycache__/
+
+# Berkas database SQLite
+*.sqlite3
+
+# Berkas model migrations
+**/migrations/000*.py

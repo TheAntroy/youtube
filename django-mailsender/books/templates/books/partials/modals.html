@@ -1,0 +1,84 @@
+<!-- Modal View Detail Book -->
+<div id="viewModalBook-{{forloop.counter}}" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-sm max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-center mx-auto">
+                <img class="w-full h-[16rem] rounded-lg" src="{{book.images}}" alt="" />
+            </div>
+
+            <div class="flow-root mt-5">
+                <dl class="-my-3 divide-y divide-gray-100 text-sm">
+                    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Book Title</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ book.title }}</dd>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Author</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ book.author|title }}</dd>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Year Published</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ book.year|date:'o' }}</dd>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Genre</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ book.genre|title }}</dd>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+                        <dt class="font-medium text-gray-900">Contact</dt>
+                        <dd class="text-gray-700 sm:col-span-2">{{ book.contact }}</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="mt-4 sm:flex sm:items-center sm:justify-between sm:mt-6 sm:-mx-2">
+                <button data-modal-hide="viewModalBook-{{forloop.counter}}"
+                    class="px-4 sm:mx-2 w-full py-2.5 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete Book -->
+<div id="deleteModalBook-{{forloop.counter}}" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-sm max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow p-6">
+
+            <div class="flex items-center justify-center mx-auto">
+                <img class="w-full h-[16rem] rounded-lg" src="{{ book.images }}" alt="" />
+            </div>
+
+            <div class="mt-5 text-center">
+                <h3 class="text-lg font-medium text-gray-800" id="modal-title">
+                    {{ book.title }}
+                </h3>
+
+                <p class="mt-2 text-gray-500 ">
+                    Are your want to delete this book?
+                </p>
+            </div>
+
+            <div class="mt-4 sm:flex sm:items-center sm:justify-between sm:mt-6 sm:-mx-2">
+                <button data-modal-hide="deleteModalBook-{{forloop.counter}}"
+                    class="px-4 sm:mx-2 w-full py-2.5 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                    Cancel
+                </button>
+
+                <a href="{% url 'books:delete_book' book.id %}"
+                    class="px-4 sm:mx-2 w-full py-2.5 mt-3 sm:mt-0 text-sm text-center font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
