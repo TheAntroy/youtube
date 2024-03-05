@@ -1,11 +1,11 @@
-### Django App ToDo-List
+### django todo
 
 ![Current Result Django Todo](todo/static/todo/todo.png)
 
 #### How to run This Project
 
-* git clone https://github.com/antheiz/Django-ToDo.git
-* cd Django-ToDo
+* git clone https://github.com/antroy-tech/django-todo.git
+* cd django-todo
 * python -m venv python-env
 * source python-env/bin/activate/
 * pip install -r requirements.txt
