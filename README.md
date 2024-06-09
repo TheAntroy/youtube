@@ -1,2 +1,2 @@
-# Repository Antroy Tech
-Kumpulan Projects yang dibahas pada Channel YouTube [Antroy Tech](https://www.youtube.com/@AntroyTech/)
+# Repository The Antroy
+Kumpulan Projects yang dibahas pada Channel YouTube [The Antroy](https://www.youtube.com/@the-antroy/)
